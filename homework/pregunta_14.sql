@@ -43,4 +43,14 @@
 --
 --  >>> Escriba su codigo a partir de este punto <<<
 --  
-
+SELECT 
+    a.K0, 
+    ROUND(AVG(b.c21), 2) AS 'avg(c21)'
+FROM tbl1 a
+JOIN (
+    SELECT k1, c21
+    FROM tbl2
+    ) b
+ON (a.K1 = b.k1)
+WHERE (SELECT a.c13) > 400
+GROUP BY K0
